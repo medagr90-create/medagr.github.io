@@ -3,248 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MED FIT | PREMIUM STORE</title>
+    <title>MED FIT | CUPRA EDITION</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #FF3131;
-            --accent-green: #B7E4C7;
-            --accent-blue: #00B4D8;
             --bg: #050505;
-            --card-bg: #121212;
+            --card-bg: rgba(18, 18, 18, 0.9); /* درناها شفافة شوية باش يبان اللوغو وراها */
         }
 
         body {
             margin: 0;
-            background: var(--bg);
+            background-color: var(--bg);
+            /* هاد السطر هو اللي كيحط اللوغو في الخلفية */
+            background-image: url('logo.jpg'); 
+            background-repeat: repeat;
+            background-size: 250px; /* تحكم في كبر اللوغو من هنا */
+            background-attachment: fixed; /* كيخلي الخلفية ثابتة فاش كتهبط */
             color: white;
             font-family: 'Inter', sans-serif;
         }
 
-        /* --- Minimal Navbar --- */
+        /* طبقة ضل خفيفة فوق اللوغو باش الكود يبقى مقروء */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.85); /* كتحكم في شحال باين اللوغو (0.85 يعني باهت بزاف) */
+            z-index: -1;
+        }
+
         nav {
             padding: 20px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(10px);
+            background: rgba(0,0,0,0.9);
+            backdrop-filter: blur(15px);
             position: sticky;
             top: 0;
             z-index: 1000;
+            border-bottom: 1px solid #222;
         }
 
         .logo {
             font-weight: 900;
             font-size: 24px;
-            letter-spacing: 2px;
-            color: var(--primary);
+            letter-spacing: 3px;
+            color: #fff;
         }
 
-        .menu {
-            display: flex;
-            gap: 30px;
-            font-size: 14px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
-        .search-container {
-            background: #1a1a1a;
-            padding: 5px 15px;
-            border-radius: 50px;
-            display: flex;
-            align-items: center;
-        }
-
-        .search-container input {
-            background: none;
-            border: none;
-            color: white;
-            padding: 5px;
-            outline: none;
-        }
-
-        /* --- Hero --- */
         .hero {
-            height: 60vh;
+            height: 50vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: radial-gradient(circle at center, #1a0505 0%, #050505 100%);
         }
 
         .hero h1 {
-            font-size: clamp(50px, 10vw, 100px);
-            margin: 0;
+            font-size: clamp(40px, 8vw, 90px);
             font-weight: 900;
-            line-height: 1;
-            background: linear-gradient(to bottom, #fff 30%, #444 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* --- Grid --- */
-        .container {
-            padding: 50px 5%;
+            text-transform: uppercase;
+            letter-spacing: -2px;
         }
 
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 30px;
+            padding: 0 5% 50px;
         }
 
         .product-card {
             background: var(--card-bg);
-            border-radius: 20px;
+            border-radius: 15px;
             padding: 20px;
-            border: 1px solid #222;
-            transition: 0.4s;
-            position: relative;
-            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.05);
+            backdrop-filter: blur(5px);
+            transition: 0.3s;
         }
 
         .product-card:hover {
-            border-color: var(--primary);
             transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(255, 49, 49, 0.2);
+            border-color: var(--primary);
+            background: rgba(25, 25, 25, 0.95);
         }
 
         .img-box {
             width: 100%;
-            height: 220px;
+            height: 200px;
             background: #1a1a1a;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #444;
-            font-weight: bold;
-        }
-
-        .tag {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: var(--accent-green);
-            color: black;
-            padding: 5px 12px;
-            font-size: 10px;
-            font-weight: 900;
-            border-radius: 5px;
-            text-transform: uppercase;
-        }
-
-        .product-card h3 {
-            font-size: 18px;
-            margin: 10px 0;
-            font-weight: 700;
+            border-radius: 10px;
+            margin-bottom: 15px;
         }
 
         .price {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 900;
-            color: #fff;
-            margin-bottom: 20px;
+            color: var(--primary);
         }
 
-        .add-btn {
+        .buy-btn {
             width: 100%;
             padding: 12px;
             background: white;
-            color: black;
             border: none;
-            border-radius: 10px;
+            border-radius: 8px;
             font-weight: 700;
+            margin-top: 15px;
             cursor: pointer;
-            transition: 0.3s;
         }
 
-        .add-btn:hover {
-            background: var(--primary);
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25d366;
             color: white;
-        }
-
-        /* --- Support --- */
-        .support-bar {
-            background: white;
-            color: black;
-            margin: 50px 5%;
-            padding: 30px;
-            border-radius: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .support-bar h2 { margin: 0; font-weight: 900; }
-
-        .wa-btn {
-            background: #000;
-            color: #fff;
-            padding: 15px 30px;
+            padding: 15px 25px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: bold;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            z-index: 1001;
         }
-
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">MEDFIT.</div>
-        <div class="menu">
-            <span>Shop</span>
-            <span>Clothing</span>
-            <span>Supplements</span>
-        </div>
-        <div class="search-container">
-            <input type="text" placeholder="Search...">
-        </div>
+        <div class="logo">MEDFIT <span style="color:var(--primary)">×</span> CUPRA</div>
         <div style="font-size: 20px;">🛒</div>
     </nav>
 
     <header class="hero">
-        <p style="color: var(--primary); font-weight: 700; letter-spacing: 5px;">NEW COLLECTION</p>
-        <h1>EVOLVE FAST.</h1>
+        <h1>POWER & STYLE</h1>
+        <p style="color: #888;">LIMITED EDITION GYM WEAR</p>
     </header>
 
-    <div class="container">
-        <div class="grid">
-            <script>
-                for(let i=1; i<=12; i++) {
-                    document.write(`
-                        <div class="product-card">
-                            <span class="tag">New Arrival</span>
-                            <div class="img-box">IMAGE</div>
-                            <h3>Performance Tee V${i}</h3>
-                            <div class="price">${299 + i}.00 DH</div>
-                            <button class="add-btn">QUICK ADD</button>
-                        </div>
-                    `);
-                }
-            </script>
-        </div>
+    <div class="grid">
+        <script>
+            for(let i=1; i<=12; i++) {
+                document.write(`
+                    <div class="product-card">
+                        <div class="img-box"></div>
+                        <h3>Pro Performance V${i}</h3>
+                        <div class="price">350 DH</div>
+                        <button class="buy-btn">BUY NOW</button>
+                    </div>
+                `);
+            }
+        </script>
     </div>
 
-    <div class="support-bar">
-        <div>
-            <h2>NEED HELP?</h2>
-            <p>Our experts are ready to help you via WhatsApp.</p>
-        </div>
-        <a href="#" class="wa-btn">CONTACT SUPPORT</a>
-    </div>
-
-    <footer style="padding: 40px; text-align: center; color: #444; font-size: 12px;">
-        © 2026 MED FIT ELITE. ALL RIGHTS RESERVED.
-    </footer>
+    <a href="#" class="whatsapp-float">Order via WhatsApp 💬</a>
 
 </body>
 </html>
