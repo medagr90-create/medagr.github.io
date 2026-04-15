@@ -1,103 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MED FIT</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MED FIT - Power Your Style</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
 
-<style>
-body{
-  margin:0;
-  font-family: Arial, sans-serif;
-  background:#0f0f0f;
-  color:white;
-}
+    <style>
+        :root {
+            --primary: #ff3131; /* لون أحمر رياضي */
+            --bg: #0a0a0a;
+            --card-bg: #161616;
+        }
 
-header{
-  background:#111;
-  padding:30px;
-  text-align:center;
-  font-size:40px;
-  font-weight:bold;
-  letter-spacing:2px;
-}
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg);
+            color: white;
+            overflow-x: hidden;
+        }
 
-.subtitle{
-  text-align:center;
-  color:#aaa;
-  margin-top:10px;
-}
+        header {
+            background: linear-gradient(180deg, rgba(255,49,49,0.2) 0%, rgba(10,10,10,0) 100%);
+            padding: 60px 20px;
+            text-align: center;
+        }
 
-.container{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  margin-top:30px;
-}
+        header h1 {
+            font-size: 60px;
+            font-weight: 900;
+            margin: 0;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+            font-style: italic;
+        }
 
-.card{
-  background:#1c1c1c;
-  width:250px;
-  margin:15px;
-  padding:20px;
-  border-radius:15px;
-  text-align:center;
-  transition:0.3s;
-}
+        .subtitle {
+            color: #ccc;
+            font-size: 18px;
+            margin-top: 5px;
+            letter-spacing: 1px;
+            text-align: center;
+        }
 
-.card:hover{
-  transform:scale(1.05);
-}
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-button{
-  margin-top:10px;
-  padding:10px 15px;
-  border:none;
-  background:red;
-  color:white;
-  cursor:pointer;
-  border-radius:8px;
-}
+        .card {
+            background: var(--card-bg);
+            border: 1px solid #222;
+            width: 280px;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
 
-footer{
-  text-align:center;
-  margin-top:40px;
-  color:#666;
-  font-size:14px;
-  padding:20px;
-}
-</style>
+        .card::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,49,49,0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: 0.5s;
+        }
 
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .card p {
+            color: #888;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 30px;
+            border: none;
+            background: var(--primary);
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 50px;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 49, 49, 0.3);
+        }
+
+        button:hover {
+            background: #d20000;
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(255, 49, 49, 0.5);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 80px;
+            border-top: 1px solid #222;
+            padding: 40px;
+            color: #444;
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+    </style>
 </head>
-
 <body>
 
-<header>💪 MED FIT</header>
-<div class="subtitle">Build your body. Build your life.</div>
+<header>
+    <h1>💪 MED FIT</h1>
+    <div class="subtitle">BUILD YOUR BODY. BUILD YOUR LIFE.</div>
+</header>
 
 <div class="container">
+    <div class="card">
+        <h2>Elastic Bands</h2>
+        <p>Ultra-durable resistance bands for a full body workout at home.</p>
+        <button>Buy Now</button>
+    </div>
 
-  <div class="card">
-    <h2>Elastic Bands</h2>
-    <p>Perfect for home workout</p>
-    <button>Buy Now</button>
-  </div>
+    <div class="card">
+        <h2>Push Up Board</h2>
+        <p>Multi-function system to target specific chest and shoulder muscles.</p>
+        <button>Buy Now</button>
+    </div>
 
-  <div class="card">
-    <h2>Push Up Board</h2>
-    <p>Train chest & shoulders</p>
-    <button>Buy Now</button>
-  </div>
-
-  <div class="card">
-    <h2>Skipping Rope</h2>
-    <p>Burn fat fast</p>
-    <button>Buy Now</button>
-  </div>
-
+    <div class="card">
+        <h2>Skipping Rope</h2>
+        <p>High-speed jump rope designed for intense cardio and fat burning.</p>
+        <button>Buy Now</button>
+    </div>
 </div>
 
-<footer>© 2026 MED FIT - All rights reserved</footer>
+<footer>© 2026 MED FIT - ENGINEERED FOR PERFORMANCE</footer>
 
 </body>
 </html>
